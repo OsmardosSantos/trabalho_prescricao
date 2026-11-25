@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prescrição Médica Eletrônica - Controle de Estoque</title>
+  <!-- Conecta o arquivo CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    
+    <!-- 1. DADOS DA PRESCRIÇÃO MÉDICA ELETRÔNICA -->
+    <section class="card">
+      <div class="header-title">
+        <span>Prescrição Médica Eletrônica #2026-0894</span>
+        <span class="status-header">Status: Em Análise de Estoque</span>
+      </div>
+      
+      <div class="patient-grid">
+        <div class="info-item">
+          <label>Nome do Paciente</label>
+          <span>João Silva Santos</span>
+        </div>
+        <div class="info-item">
+          <label>Data de Nascimento</label>
+          <span>07/09/2001 (25 anos)</span>
+        </div>
+        <div class="info-item">
+          <label>Prontuário</label>
+          <span>PRT-962820</span>
+        </div>
+        <div class="info-item">
+          <label>Leito</label>
+          <span>Enfermaria A - Leito 18</span>
+        </div>
+        <div class="info-item">
+          <label>Especialidade</label>
+          <span>Clínica Médica</span>
+        </div>
+        <div class="info-item">
+          <label>Data da Prescrição</label>
+          <span>17/11/2026 - 11:45</span>
+        </div>
+        <div class="info-item cid-item">
+          <label>CID</label>
+          <span>J18.9 - Pneumonia não especificada</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. CAMPO DE PESQUISA E LISTA DE MEDICAMENTOS -->
+    <section class="card">
+      <div class="search-bar">
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="Pesquisar medicamento por nome ou código..." 
+          onkeyup="filtrarMedicamentos()"
+        >
+      </div>
+
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Medicamento / Posologia</th>
+              <th>Qtd. Prescrita</th>
+              <th>Saldo em Estoque</th>
+              <th>Status do Estoque</th>
+              <th>Ação / Reserva</th>
+            </tr>
+          </thead>
+          <tbody id="medicationTableBody">
+            <!-- Preenchido dinamicamente via JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- MODAL DE INTERAÇÃO (TROCA / NOTIFICAÇÃO FARMÁCIA) -->
+  <div class="modal-overlay" id="actionModal">
+    <div class="modal-box">
+      <h3 id="modalTitle">Título</h3>
+      <p id="modalBody">Conteúdo</p>
+      <div class="modal-footer">
+        <button class="btn btn-close" onclick="fecharModal()">Fechar</button>
+        <button class="btn btn-confirm" onclick="fecharModal()">Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conecta o arquivo JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
